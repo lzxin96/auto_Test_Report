@@ -1,7 +1,7 @@
 # _*_ coding:utf-8 _*_
 from selenium import webdriver
 from Util.Mouse_Simulation import Simulate_Mouse
-from Util import BrowserController
+from Util.Keyboard_Simulation import Simulate_Keyboard
 import unittest
 import time
 
@@ -21,3 +21,13 @@ class Test_Advanced_Application(unittest.TestCase):
         element = chr_driver.find_element_by_id('s-usersetting-top')
         Simulate_Mouse(chr_driver).right_click(element)
         time.sleep(5)
+
+    def test_simulate_keyboard(self):
+        '''
+        win32封装键盘方法
+        http://www.yfvb.com/help/win32sdk/index.htm?page=html/4luzha.htm
+        @return:
+        '''
+        Simulate_Keyboard.click_onekey('enter')
+        Simulate_Keyboard.click_twokey('ctrl', 'v')
+        Simulate_Keyboard.click_onekey('enter')
